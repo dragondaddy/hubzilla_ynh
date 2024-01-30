@@ -65,6 +65,7 @@ if mysqlshow | grep -q "^| $db_name "; then
     # Migrate the database from MySQL/MariaDB to PostgreSQL
     remove_psql_in_case_of_error=1
     mariadb-to-pg
+    ynh_psql_connect_as --user="$db_name" --password="$db_pwd" --database="$db_name" < $install_dir/install/migrate_mypg_fixseq.sql
 fi 
   
 #=================================================
